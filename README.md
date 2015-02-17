@@ -1,7 +1,7 @@
 Coldbox Module to allow OAuth Support
 ================
 
-Current this module only supports OAuth v1. I'm working on modularizing OAuth v2 and hopefully will release it soon.
+Currently this module only supports OAuth v1. I'm working on modularizing OAuth v2 and hopefully will release it soon.
 
 Setup & Installation
 ---------------------
