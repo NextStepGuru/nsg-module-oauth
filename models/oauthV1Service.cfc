@@ -3,8 +3,8 @@ component name="oauthV1Service" accessors="true" singleton {
 	property name="consumerKey";
 	property name="consumerSecret";
 
-	property name="accessToken" default="";
-	property name="accessTokenSecret" default="";
+	property name="OAuthToken" default="";
+	property name="OAuthSecret" default="";
 
 	property name="requestURL";
 	property name="requestMethod" default="POST";
@@ -53,7 +53,7 @@ component name="oauthV1Service" accessors="true" singleton {
 
 	public string function createSignature(){
 
-		return hmacSha1(signKey=getConsumerSecret() & '&' & getAccessTokenSecret(),signMessage=getSignatureBaseString());
+		return hmacSha1(signKey=getConsumerSecret() & '&' & getOAuthSecret(),signMessage=getSignatureBaseString());
 	}
 
 	private string function getSignatureBaseString(){
@@ -69,8 +69,8 @@ component name="oauthV1Service" accessors="true" singleton {
 		mySignatureArray.append('oauth_version=' & getVersion() );
 		mySignatureArray.append('oauth_signature_method=' & getSignatureMethod() );
 
-		if( len(getAccessToken()) ){
-			mySignatureArray.append('oauth_token=' & getAccessToken() );
+		if( len(getOAuthToken()) ){
+			mySignatureArray.append('oauth_token=' & getOAuthToken() );
 		}
 
 		for(var i=1;i<=arrayLen(getParams());i++){
@@ -94,8 +94,8 @@ component name="oauthV1Service" accessors="true" singleton {
 		myAuth.append('oauth_version="' & encodeURL(getVersion()) & '"' );
 		myAuth.append('oauth_signature_method="' & encodeURL(getSignatureMethod()) & '"' );
 		myAuth.append('oauth_signature="' & encodeURL(getSignature()) & '"' );
-		if( len(getAccessToken()) ){
-			myAuth.append('oauth_token="' & getAccessToken() & '"' );
+		if( len(getOAuthToken()) ){
+			myAuth.append('oauth_token="' & getOAuthToken() & '"' );
 		}
 		myAuth.sort('textNoCase');
 
