@@ -2,9 +2,9 @@ component {
 
 	// Module Properties
 	this.title 				= "oauth";
-	this.author 			= "";
-	this.webURL 			= "";
-	this.description 		= "";
+	this.author 			= "Jeremy R DeYoung";
+	this.webURL 			= "http://www.nextstep.guru";
+	this.description 		= "This is the default configuration for nsg's layout.";
 	this.version			= "1.0.0";
 	// If true, looks for views in the parent first, if not found, then in the module. Else vice-versa
 	this.viewParentLookup 	= true;
@@ -58,7 +58,7 @@ component {
 		interceptors = [
 		];
 
-		binder.mapDirectory( "models" );
+		binder.mapDirectory( "#moduleMapping#.models" );
 
 	}
 
