@@ -1,7 +1,7 @@
 {
     "name":"nsg-module-oauth",
     "slug":"nsg-module-oauth",
-    "version":"1.0.0",
+    "version":"1.0.1",
     "author":"Jeremy R DeYoung",
     "shortDescription":"Coldbox Module to enabling OAuth Support",
     "location":"",
